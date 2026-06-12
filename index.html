@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astral Future</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: #eeeee8;
+      width: 100%;
+    }
+
+    .slide {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .slide img {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .slide-video {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .slide-video video {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      background: #000;
+    }
+
+    /* Fade-in on scroll */
+    .slide, .slide-video {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide.visible, .slide-video.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide"><img src="1.png" alt="Astral Future"></div>
+
+  <div class="slide-video">
+    <video autoplay muted loop playsinline>
+      <source src="page_2.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="slide"><img src="3.png" alt="Hotel Tehran"></div>
+  <div class="slide"><img src="4.png" alt="Standout material drives outstanding success"></div>
+  <div class="slide"><img src="5.png" alt="This is the Astral Future"></div>
+  <div class="slide"><img src="6.png" alt="Worldwide Experience"></div>
+  <div class="slide"><img src="7.png" alt="Growth & Scaling"></div>
+  <div class="slide"><img src="8.png" alt="Glamour, Excitement and Fun"></div>
+  <div class="slide"><img src="9.png" alt="Who is Astral Future?"></div>
+  <div class="slide"><img src="10.png" alt="Let's Connect"></div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.slide, .slide-video').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
